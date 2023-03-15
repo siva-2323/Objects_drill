@@ -1,14 +1,15 @@
 
-function isObject(input,defaultProps)
+function isObject(input)
 {
-if( input === null || input===undefined || defaultProps === null || defaultProps === undefined || typeof defaultProps !== "object" || Array.isArray(defaultProps)) return false;
+if( input === null || input===undefined ) return false;
 else if(typeof input === "object") return true;
 else return false;
 }
 
 function defaults(input,defaultProps)
 {
-    if(isObject(input,defaultProps) && !Array.isArray(input))
+    if( defaultProps === null || defaultProps === undefined || typeof defaultProps !== "object" || Array.isArray(defaultProps)) return input;
+    if(isObject(input) && !Array.isArray(input))
         {
             for(let temp in defaultProps){
                 if(!temp in input){
