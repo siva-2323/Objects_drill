@@ -1,4 +1,4 @@
-let answer=[];
+let answer={};
 
 function isObject(input,cb)
 {
@@ -8,10 +8,6 @@ else if(typeof input === "object" && typeof cb === "function" ) return true;
 return false;
 }
 
-function cb(value,key)
-{
-return value+ key;
-}
 
 function mapObject(input, cb)
 {
@@ -22,10 +18,8 @@ function mapObject(input, cb)
         for( let element in input)
         {
             let temp=input[element];
-    
-           let  newValue=cb(temp,element);
             
-            answer.push(newValue);
+            answer[element]=cb(temp,element)
         }
         
    }return answer;
