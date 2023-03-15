@@ -4,5 +4,5 @@ const keys=require("../keys.cjs");
 const testObject = { name: 'Bruce Wayne', age: 36, location: 'Gotham' };
 
 
-let temp=keys(testObject);
+let temp=keys();
 console.log(temp);
