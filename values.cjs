@@ -1,30 +1,19 @@
 
-const keys=require("./keys.cjs");
 let answer=[];
-
-
-function isObject(input)
-{
-if(input === null || input===undefined ) return false;
-else if(typeof input === "object") return true;
-return false;
-}
-
 
 function values(input)
 {
-    if(isObject(input)&& !Array.isArray(input))
+    for (let key in input)
     {
-
-        let keyArray=keys(input);
-        for(let loop =0;loop<keyArray.length;loop++)
+        if(typeof input[key] !== "function")
         {
-            let temp=keyArray[loop];
-            answer.push(input[temp]);
+            answer.push(input[key]);
         }
-        
-    }return answer;
+    }
+
+    return answer;
 
 }
+
 
 module.exports=values;
