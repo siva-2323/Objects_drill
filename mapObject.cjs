@@ -1,32 +1,34 @@
-const testObject = { name: 'Bruce Wayne', age: 36, location: 'Gotham' }; 
+let answer=[];
 
-function isObject(input)
+function isObject(input,cb)
 {
-if((input === null)||(input===undefined)) return false;
-else if(typeof input === "object") return true;
-else return false;
+if( input === null || input===undefined || typeof cb !== "function") return false;
+else if(cb === null || cb === undefined ) return false;
+else if(typeof input === "object" && typeof cb === "function" ) return true;
+return false;
 }
 
-function cb(value)
+function cb(value,key)
 {
-return value+" batman";
+return value+ key;
 }
 
 function mapObject(input, cb)
 {
-   if(isObject(input))
+    if(isObject(input,cb)&& !Array.isArray(input))
+
    {
     
-        for( let i in input)
+        for( let element in input)
         {
-            let temp=input[i];
+            let temp=input[element];
     
-            let answer=cb(temp);
+           let  newValue=cb(temp,element);
             
-            input[i]=answer;
+            answer.push(newValue);
         }
-        return input;
-   }else return []
+        
+   }return answer;
 }
 
 module.exports=mapObject;

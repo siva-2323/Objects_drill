@@ -1,8 +1,8 @@
 const testObject = { name: 'Bruce Wayne', age: 36, location: 'Gotham' }; 
 
-function cb(input)
+function cb(value,key)
 {
-    return input+" Batman";
+    return value+" "+key;
 }
 
 
