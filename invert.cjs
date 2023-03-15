@@ -1,4 +1,3 @@
-const testObject = { name: 'Bruce Wayne', age: 36, location: 'Gotham' }; 
 
 let answer={};
 
@@ -6,18 +5,16 @@ let keys=require("./keys.cjs");
 let values=require("./values.cjs");
 
 
-
-
 function isObject(input)
 {
 if((input === null)||(input===undefined)) return false;
 else if(typeof input === "object") return true;
-else return false;
+return false;
 }
 
 function invert(input)
 {
-    if(isObject(input))
+    if(isObject(input) && !Array.isArray(input))
     {
 
         let keyArray=keys(input);
