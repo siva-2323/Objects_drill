@@ -1,22 +1,11 @@
-
-let answer=[];
-
 function values(input)
-{
-    if(typeof input === "object")
+ {
+    let answer = [];
+    if (typeof input !== "object" || input === null) return answer;
+    for (let key in input) 
     {
-                for (let key in input)
-                {
-                    if(typeof input[key] !== "function")
-                    {
-                        answer.push(input[key]);
-                    }
-                }
+        answer.push(input[key]);
     }
-
     return answer;
-
 }
-
-
-module.exports=values;
+module.exports = values;

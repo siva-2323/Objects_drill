@@ -1,17 +1,11 @@
-
-let answer=[];
-
 function pairs(input)
 {
-    if(typeof input === "object")
+    let answer=[];
+    if(typeof input !== "object" || input === null) return answer;
+    for(let item in input)
     {
-                for(let key in input)
-                {
-                    answer.push([key,input[key]])
-                }
+        answer.push([item,input[item]])
     }
             return answer;
-
 }
-
 module.exports=pairs;

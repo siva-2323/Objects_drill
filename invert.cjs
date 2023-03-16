@@ -1,17 +1,11 @@
-
-let answer={};
-
 function invert(input)
 {
-   
-   if(typeof input === "object")
-   {
-         for(let element in input)
-         {
-            answer[input[element]]=element;
-         }
-   }
+   let answer={};
+   if(typeof input !== "object" || input === null) return answer;
+   for(let item in input)
+      {
+            answer[input[item]]=item;
+      }
     return answer;
-
 }
 module.exports=invert;

@@ -1,20 +1,11 @@
-
-let answer={};
-
-
 function mapObject(input, callBack)
 {
-    
-    if (callBack !== undefined && typeof input === "object" &&typeof callBack === 'function' && callBack !==null) 
+    let answer={};
+    if (typeof callBack !== "function" || typeof input !== "object" || input === null) return answer;
+    for( let item in input)
     {
-        for( let element in input)
-        {
-            let temp=input[element];
-            
-            answer[element]=callBack(temp,element)
-        }
+            answer[item]=callBack(input[item],item)
     }
    return answer;
 }
-
 module.exports=mapObject;

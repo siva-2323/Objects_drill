@@ -1,22 +1,16 @@
-
-
-
 function defaults(input,defaultProps)
 {
-    
-    if(typeof input !== "object" || Array.isArray(input))
-    {
-         return {};
-    }else
+    if(defaultProps === undefined) return input;
+    else if(typeof defaultProps !== "object") return {}
     {
             for (let keys in defaultProps) 
-            {
-                
-                input[keys] = defaultProps[keys]
-            }
-   
+            {   
+                if(!input[keys])
+                {
+                    input[keys] = defaultProps[keys]
+                }
+            }  
     }
     return input;
 }
-
 module.exports=defaults;
