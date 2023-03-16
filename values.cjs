@@ -3,12 +3,15 @@ let answer=[];
 
 function values(input)
 {
-    for (let key in input)
+    if(typeof input === "object")
     {
-        if(typeof input[key] !== "function")
-        {
-            answer.push(input[key]);
-        }
+                for (let key in input)
+                {
+                    if(typeof input[key] !== "function")
+                    {
+                        answer.push(input[key]);
+                    }
+                }
     }
 
     return answer;

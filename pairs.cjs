@@ -3,11 +3,12 @@ let answer=[];
 
 function pairs(input)
 {
-       
-    for(let key in input)
+    if(typeof input === "object")
     {
-        answer.push([key,input[key]])
-
+                for(let key in input)
+                {
+                    answer.push([key,input[key]])
+                }
     }
             return answer;
 

@@ -4,12 +4,13 @@ let answer={};
 function invert(input)
 {
    
-
-     for(let element in input)
-     {
-        answer[input[element]]=element;
-     }
-            
+   if(typeof input === "object")
+   {
+         for(let element in input)
+         {
+            answer[input[element]]=element;
+         }
+   }
     return answer;
 
 }

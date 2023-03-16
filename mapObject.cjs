@@ -5,7 +5,7 @@ let answer={};
 function mapObject(input, callBack)
 {
     
-    if (callBack !== undefined && typeof callBack === 'function' && callBack !==null) 
+    if (callBack !== undefined && typeof input === "object" &&typeof callBack === 'function' && callBack !==null) 
     {
         for( let element in input)
         {
