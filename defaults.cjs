@@ -1,16 +1,21 @@
-function defaults(input,defaultProps)
+function defaults(input, defaultProps)
 {
-    if(defaultProps === undefined) return input;
-    else if(typeof defaultProps !== "object") return {}
+    if (typeof input === "string") 
     {
-            for (let keys in defaultProps) 
-            {   
-                if(!input[keys])
-                {
-                    input[keys] = defaultProps[keys]
-                }
-            }  
+        const stringToObject = {};
+        for (let index = 0; index < input.length; index++) 
+        {
+            stringToObject[index] = input.charAt(index);
+        }
+        input = stringToObject;
     }
+    for (let keys in defaultProps) 
+    {   
+        if(!input[keys])
+        {
+            input[keys] = defaultProps[keys]
+        }
+    }  
     return input;
-}
+    }
 module.exports=defaults;
